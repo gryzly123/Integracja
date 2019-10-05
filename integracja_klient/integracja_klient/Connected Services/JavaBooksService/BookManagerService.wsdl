@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://books.integracja.kniedzwiecki.eu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="BookManagerService" targetNamespace="http://books.integracja.kniedzwiecki.eu/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:666/books?xsd=1" namespace="http://books.integracja.kniedzwiecki.eu/" />
+    </xsd:schema>
+  </types>
+  <message name="searchByAuthor">
+    <part name="parameters" element="tns:searchByAuthor" />
+  </message>
+  <message name="searchByAuthorResponse">
+    <part name="parameters" element="tns:searchByAuthorResponse" />
+  </message>
+  <message name="setBooks">
+    <part name="parameters" element="tns:setBooks" />
+  </message>
+  <message name="setBooksResponse">
+    <part name="parameters" element="tns:setBooksResponse" />
+  </message>
+  <message name="searchByTitle">
+    <part name="parameters" element="tns:searchByTitle" />
+  </message>
+  <message name="searchByTitleResponse">
+    <part name="parameters" element="tns:searchByTitleResponse" />
+  </message>
+  <message name="getBooks">
+    <part name="parameters" element="tns:getBooks" />
+  </message>
+  <message name="getBooksResponse">
+    <part name="parameters" element="tns:getBooksResponse" />
+  </message>
+  <message name="searchByIsbn">
+    <part name="parameters" element="tns:searchByIsbn" />
+  </message>
+  <message name="searchByIsbnResponse">
+    <part name="parameters" element="tns:searchByIsbnResponse" />
+  </message>
+  <message name="addBook">
+    <part name="parameters" element="tns:addBook" />
+  </message>
+  <message name="addBookResponse">
+    <part name="parameters" element="tns:addBookResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <portType name="BookManager">
+    <operation name="searchByAuthor">
+      <input wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/searchByAuthorRequest" message="tns:searchByAuthor" />
+      <output wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/searchByAuthorResponse" message="tns:searchByAuthorResponse" />
+    </operation>
+    <operation name="setBooks">
+      <input wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/setBooksRequest" message="tns:setBooks" />
+      <output wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/setBooksResponse" message="tns:setBooksResponse" />
+    </operation>
+    <operation name="searchByTitle">
+      <input wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/searchByTitleRequest" message="tns:searchByTitle" />
+      <output wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/searchByTitleResponse" message="tns:searchByTitleResponse" />
+    </operation>
+    <operation name="getBooks">
+      <input wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/getBooksRequest" message="tns:getBooks" />
+      <output wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/getBooksResponse" message="tns:getBooksResponse" />
+    </operation>
+    <operation name="searchByIsbn">
+      <input wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/searchByIsbnRequest" message="tns:searchByIsbn" />
+      <output wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/searchByIsbnResponse" message="tns:searchByIsbnResponse" />
+    </operation>
+    <operation name="addBook">
+      <input wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/addBookRequest" message="tns:addBook" />
+      <output wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/addBookResponse" message="tns:addBookResponse" />
+      <fault wsam:Action="http://books.integracja.kniedzwiecki.eu/BookManager/addBook/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="BookManagerPortBinding" type="tns:BookManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="searchByAuthor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setBooks">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="searchByTitle">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getBooks">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="searchByIsbn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="addBook">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="BookManagerService">
+    <port name="BookManagerPort" binding="tns:BookManagerPortBinding">
+      <soap:address location="http://localhost:666/books" />
+    </port>
+  </service>
+</definitions>
