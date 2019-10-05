@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stops xmlns="http://wi.zut.edu.pl/ia/bus_stops"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://wi.zut.edu.pl/ia/bus_stops bus_stops.xsd">
+    <stop id="1">
+        <name>Żołnierska</name>
+        <instances>
+            <instance id="1">
+				<line>7>Krzekowo</line>
+				<line>5>Krzekowo</line>
+			</instance>
+            <instance id="2">
+				<line>7>Truskawkowa</line>
+				<line>5>Stocznia</line>
+			</instance>
+        </instances>
+    </stop>
+    <stop id="2">
+        <name>Wernyhory</name>
+        <instances>
+            <instance id="1">
+				<line>7>Krzekowo</line>
+				<line>5>Krzekowo</line>
+				<line>75>Krzekowo</line>
+			</instance>
+            <instance id="2">
+				<line>7>Truskawkowa</line>
+				<line>5>Stocznia</line>
+			</instance>
+			<instance id="3">
+				<line>75>Dworzec Główny</line>
+			</instance>
+        </instances>
+    </stop>
+    <stop id="3">
+        <name>Wyszyńskiego</name>
+        <instances>
+            <instance id="1">
+				<line>7>Krzekowo</line>
+				<line>5>Krzekowo</line>
+				<line>75>Krzekowo</line>
+			</instance>
+            <instance id="2">
+				<line>7>Truskawkowa</line>
+				<line>5>Stocznia</line>
+			</instance>
+			<instance id="3">
+				<line>75>Dworzec Główny</line>
+			</instance>
+			<instance id="4">
+				<line>75>Dworzec Główny</line>
+			</instance>
+
+        </instances>
+    </stop>
+</stops>
