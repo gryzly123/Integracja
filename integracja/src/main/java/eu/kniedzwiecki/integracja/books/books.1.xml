@@ -10,6 +10,8 @@
         </authors>
         <isbn>83-246-0590-8</isbn>
         <publisher>Helion</publisher>
+		<keywords>xml tablice</keywords>
+		<pages>5</pages>
         <year>2007</year>
     </book>
     <book id="CWJAV3">
@@ -19,6 +21,8 @@
         </authors>
         <isbn>978-83-246-2785-1</isbn>
         <publisher>Helion</publisher>
+		<keywords>java ćwiczenia</keywords>
+		<pages>135</pages>
         <year>2011</year>
     </book>
     <book id="JAPPAN">
@@ -28,6 +32,8 @@
         </authors>
         <isbn>978-83-246-3372-2</isbn>
         <publisher>Helion</publisher>
+		<keywords>java android</keywords>
+		<pages>287</pages>
         <year>2011</year>
     </book>
 </books>
