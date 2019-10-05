@@ -37,7 +37,12 @@ public class BookManager
 			throw new Exception();
 		}
 		
-		if(searchByIsbn(b.getIsbn()) == b)	
+		if(searchByIsbn(b.getIsbn()) != null)	
+		{
+			throw new Exception();
+		}
+		
+		if(b.getTitle().isEmpty() || b.getAuthor().isEmpty())
 		{
 			throw new Exception();
 		}
