@@ -9,9 +9,9 @@ public class Main
 		BookManager bm = new BookManager();
 		try
 		{
-			bm.addBook(new Book("b1", "Koparka dla opornych", "Zdzisław Maliniak", "123456789", 2000));
-			bm.addBook(new Book("b2", "Java rulez", "James Gosling", "2244668800", 1998));
-			bm.addBook(new Book("b3", "Sadownictwo dla początkujących", "Steve Jobs", "13579135", 1990));
+			bm.addBook(new Book("b1", "Koparka dla opornych", "Zdzisław Maliniak", "123456789", 2000, "Helion", 100));
+			bm.addBook(new Book("b2", "Java rulez", "James Gosling", "2244668800", 1998, "PWN", 120));
+			bm.addBook(new Book("b3", "Sadownictwo dla początkujących", "Steve Jobs", "13579135", 1990, "Nowa Era", 500));
 		}
 		catch(Exception e)
 		{

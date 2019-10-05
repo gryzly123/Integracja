@@ -16,64 +16,97 @@ public class Book {
 	private String author;
 	private String isbn;
 	private Integer year;
-	
+	private String publisher;
+	private Integer pages;
+
 	public Book()
 	{
 		
 	}
 	
-	public Book(String _id, String _title, String _author, String _isbn, Integer _year)
+	public Book(String _id, String _title, String _author, String _isbn, Integer _year, String _publisher, Integer _pages)
 	{
 		id = _id;
 		title = _title;
 		author = _author;
 		isbn = _isbn;
 		year = _year;
+		publisher = _publisher;
+		pages = _pages;
 	}
 
 	@Override
-	public String toString()
-	{
-		return "Book{" + "id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year + '}';
+	public String toString() {
+		return "Book{" + "id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year + ", publisher=" + publisher + ", pages=" + pages + '}';
 	}
-	
-	public String getId() {
+
+	public String getId() 
+	{
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(String id) 
+	{
 		this.id = id;
 	}
 
-	public String getTitle() {
+	public String getTitle() 
+	{
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(String title) 
+	{
 		this.title = title;
 	}
 
-	public String getAuthor() {
+	public String getAuthor() 
+	{
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(String author) 
+	{
 		this.author = author;
 	}
 
-	public String getIsbn() {
+	public String getIsbn() 
+	{
 		return isbn;
 	}
 
-	public void setIsbn(String isbn) {
+	public void setIsbn(String isbn) 
+	{
 		this.isbn = isbn;
 	}
 
-	public Integer getYear() {
+	public Integer getYear() 
+	{
 		return year;
 	}
 
-	public void setYear(Integer year) {
+	public void setYear(Integer year) 
+	{
 		this.year = year;
+	}
+	
+		public String getPublisher()
+	{
+		return publisher;
+	}
+
+	public void setPublisher(String publisher)
+	{
+		this.publisher = publisher;
+	}
+
+	public Integer getPages()
+	{
+		return pages;
+	}
+
+	public void setPages(Integer pages)
+	{
+		this.pages = pages;
 	}
 }
