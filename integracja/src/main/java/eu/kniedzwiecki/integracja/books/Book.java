@@ -5,10 +5,15 @@
  */
 package eu.kniedzwiecki.integracja.books;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  *
  * @author knied
  */
+
+@XmlType(name = "book")
 public class Book {
 
 	private String id;
@@ -40,6 +45,7 @@ public class Book {
 		return "Book{" + "id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year + ", publisher=" + publisher + ", pages=" + pages + '}';
 	}
 
+	@XmlAttribute
 	public String getId() 
 	{
 		return id;

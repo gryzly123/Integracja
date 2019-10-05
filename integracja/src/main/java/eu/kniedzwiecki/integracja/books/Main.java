@@ -1,10 +1,20 @@
 package eu.kniedzwiecki.integracja.books;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 public class Main
 {	
 	public static void main(String[] args)
+	{
+		lab04();
+	}
+
+	static void lab01()
 	{
 		BookManager bm = new BookManager();
 		try
@@ -20,6 +30,35 @@ public class Main
 		}
 
 		List<Book> w = bm.searchByTitle("Java");
-		System.out.println(w);
+		System.out.println(w);		
+	}
+
+	static void lab04()
+	{
+		BookManager bm = null;
+		
+		try 
+		{
+			JAXBContext context = JAXBContext.newInstance(BookManager.class);
+			Unmarshaller um = context.createUnmarshaller();
+			FileReader fr = new FileReader("books.xml");
+			bm = (BookManager) um.unmarshal(fr);
+			fr.close();
+		}
+		catch (JAXBException e) 
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		if(bm != null)
+		{
+			List<Book> bs = bm.searchByTitle("Java");
+			System.out.println(bs);
+		}
 	}
 }
+
