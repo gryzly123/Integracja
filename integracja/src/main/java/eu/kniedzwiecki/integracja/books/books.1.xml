@@ -9,7 +9,11 @@
             <author>Sławomir Zimosz</author>
         </authors>
         <isbn>83-246-0590-8</isbn>
-        <publisher>Helion</publisher>
+        <publisher>
+			<id>1</id>
+			<name>Helion</name>
+			<url>http://helion.pl</url>
+		</publisher>
 		<keywords>xml tablice</keywords>
 		<pages>5</pages>
         <year>2007</year>
@@ -20,7 +24,11 @@
             <author>Marcin Lis</author>
         </authors>
         <isbn>978-83-246-2785-1</isbn>
-        <publisher>Helion</publisher>
+        <publisher>
+			<id>1</id>
+			<name>Helion</name>
+			<url>http://helion.pl</url>
+		</publisher>
 		<keywords>java ćwiczenia</keywords>
 		<pages>135</pages>
         <year>2011</year>
@@ -31,7 +39,11 @@
             <author>Jeff Friesen</author>
         </authors>
         <isbn>978-83-246-3372-2</isbn>
-        <publisher>Helion</publisher>
+        <publisher>
+			<id>1</id>
+			<name>Helion</name>
+			<url>http://helion.pl</url>
+		</publisher>
 		<keywords>java android</keywords>
 		<pages>287</pages>
         <year>2011</year>
