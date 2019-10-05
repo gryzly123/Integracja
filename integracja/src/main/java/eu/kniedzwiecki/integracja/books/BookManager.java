@@ -2,9 +2,13 @@ package eu.kniedzwiecki.integracja.books;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@WebService
 @XmlRootElement(name = "books")
 public class BookManager
 {
@@ -41,7 +45,7 @@ public class BookManager
 		books.add(b);
 	}
 			
-	public List<Book> searchByTitle(String title)
+	public @WebResult(name="matched_books") List<Book> searchByTitle(@WebParam(name="book_title") String title)
 	{
 		List<Book> searchResult = new ArrayList<>();
 		for(Book b : books)
@@ -52,7 +56,7 @@ public class BookManager
 		return searchResult;
 	}
 	
-	public List<Book> searchByAuthor(String author)
+	public @WebResult(name="matched_books") List<Book> searchByAuthor(@WebParam(name="book_author") String author)
 	{
 		List<Book> searchResult = new ArrayList<>();
 		for(Book b : books)
@@ -63,7 +67,7 @@ public class BookManager
 		return searchResult;
 	}
 	
-	public Book searchByIsbn(String isbn)
+	public @WebResult(name="matched_book") Book searchByIsbn(@WebParam(name="book_isbn") String isbn)
 	{
 		for(Book b : books)
 		{

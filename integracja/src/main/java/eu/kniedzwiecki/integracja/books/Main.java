@@ -8,12 +8,13 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.ws.Endpoint;
 
 public class Main
 {	
 	public static void main(String[] args)
 	{
-		lab04();
+		lab05();
 	}
 
 	static void lab01()
@@ -35,7 +36,7 @@ public class Main
 		System.out.println(w);		
 	}
 
-	static void lab04()
+	static void lab05()
 	{
 		BookManager bm = null;
 		
@@ -46,21 +47,6 @@ public class Main
 			FileReader fr = new FileReader("books.xml");
 			bm = (BookManager) um.unmarshal(fr);
 			fr.close();
-			
-			Marshaller m = context.createMarshaller();
-			FileWriter fw = new FileWriter("lab3.xml");
-			
-			bm.addBook(new Book(
-					"KNIEDJ",
-					"Laboratorium: Java i XML", "Krzysztof Niedźwiecki",
-					"123-123-123-33",
-					2019,
-					"ZUT w Szczecinie",
-					2137));
-			
-			m.marshal(bm, fw);
-			fw.close();
-			
 		}
 		catch (Exception e) 
 		{
@@ -69,8 +55,8 @@ public class Main
 
 		if(bm != null)
 		{
-			List<Book> bs = bm.searchByTitle("Java");
-			System.out.println(bs);
+			String url = "http://localhost:666/books";
+			Endpoint.publish(url, bm);
 		}
 	}
 }
