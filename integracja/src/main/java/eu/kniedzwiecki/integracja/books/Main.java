@@ -1,10 +1,12 @@
 package eu.kniedzwiecki.integracja.books;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 public class Main
@@ -44,16 +46,27 @@ public class Main
 			FileReader fr = new FileReader("books.xml");
 			bm = (BookManager) um.unmarshal(fr);
 			fr.close();
+			
+			Marshaller m = context.createMarshaller();
+			FileWriter fw = new FileWriter("lab3.xml");
+			
+			bm.addBook(new Book(
+					"KNIEDJ",
+					"Laboratorium: Java i XML", "Krzysztof Niedźwiecki",
+					"123-123-123-33",
+					2019,
+					"ZUT w Szczecinie",
+					2137));
+			
+			m.marshal(bm, fw);
+			fw.close();
+			
 		}
-		catch (JAXBException e) 
+		catch (Exception e) 
 		{
 			e.printStackTrace();
 		}
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
-		
+
 		if(bm != null)
 		{
 			List<Book> bs = bm.searchByTitle("Java");
