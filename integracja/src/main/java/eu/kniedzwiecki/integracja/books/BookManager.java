@@ -57,8 +57,14 @@ public class BookManager
 		List<Book> searchResult = new ArrayList<>();
 		for(Book b : books)
 		{
-			if(b.getAuthor().contains(author))
-				searchResult.add(b);
+			for(String a : b.getAuthors())
+			{
+				if(a.contains(author))
+				{
+					searchResult.add(b);
+					break;
+				}
+			}
 		}
 		return searchResult;
 	}

@@ -5,7 +5,10 @@
  */
 package eu.kniedzwiecki.integracja.books;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -18,7 +21,7 @@ public class Book {
 
 	private String id;
 	private String title;
-	private String author;
+	private List<String> authors;
 	private String isbn;
 	private Integer year;
 	private String publisher;
@@ -29,11 +32,11 @@ public class Book {
 		
 	}
 	
-	public Book(String _id, String _title, String _author, String _isbn, Integer _year, String _publisher, Integer _pages)
+	public Book(String _id, String _title, List<String> _authors, String _isbn, Integer _year, String _publisher, Integer _pages)
 	{
 		id = _id;
 		title = _title;
-		author = _author;
+		authors = _authors;
 		isbn = _isbn;
 		year = _year;
 		publisher = _publisher;
@@ -42,7 +45,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book{" + "id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", year=" + year + ", publisher=" + publisher + ", pages=" + pages + '}';
+		return "Book{" + "id=" + id + ", title=" + title + ", author=" + authors + ", isbn=" + isbn + ", year=" + year + ", publisher=" + publisher + ", pages=" + pages + '}';
 	}
 
 	@XmlAttribute
@@ -66,14 +69,16 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getAuthor() 
+	@XmlElementWrapper(name="authors")
+    @XmlElement(name="author")
+	public List<String> getAuthors() 
 	{
-		return author;
+		return authors;
 	}
 
-	public void setAuthor(String author) 
+	public void setAuthors(List<String> author) 
 	{
-		this.author = author;
+		this.authors = authors;
 	}
 
 	public String getIsbn() 
