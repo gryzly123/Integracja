@@ -1,0 +1,79 @@
+------------------------------ dodaj ------------------------------
+
+------------- request
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kal="http://kalkulator.ia/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kal:dodaj>
+        <x>2</x>
+         <y>3</y>
+      </kal:dodaj>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+------------- response
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:dodajResponse xmlns:ns2="http://kalkulator.ia/">
+         <wynik>5</wynik>
+      </ns2:dodajResponse>
+   </S:Body>
+</S:Envelope>
+
+----------------------------- pomnoz -----------------------------
+
+------------- request
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kal="http://kalkulator.ia/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kal:pomnoz>
+         <x>5</x>
+         <y>7</y>
+      </kal:pomnoz>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+------------- response
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:pomnozResponse xmlns:ns2="http://kalkulator.ia/">
+         <wynik>35</wynik>
+      </ns2:pomnozResponse>
+   </S:Body>
+</S:Envelope>
+
+----------------------------- podziel -----------------------------
+
+------------- request
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:kal="http://kalkulator.ia/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <kal:podziel>
+         <x>36</x>
+         <y>12</y>
+      </kal:podziel>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+------------- response
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:podzielResponse xmlns:ns2="http://kalkulator.ia/">
+         <wynik>3.0</wynik>
+      </ns2:podzielResponse>
+   </S:Body>
+</S:Envelope>
+
+
+------------------------ testy nieprawidłowych żądań ------------------------
+
+podziel:     brak parametru Y         =>     "Nieprawidłowe parametry" w S:Fault/faultstring
+pomnoz:      brak X='xD' Y='lmao'     =>     "Nieprawidłowe parametry" w S:Fault/faultstring
+
+

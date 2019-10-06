@@ -1,0 +1,8 @@
+TestCase [(2+3)*7] started at 2019-10-06 21:38:45.534
+TestCase [(2+3)*7] finished with status [FINISHED], time taken = 81
+TestCase [CheckErrors] started at 2019-10-06 21:38:45.648
+Step 1 [add[2+3]] OK: took 45 ms
+TestCase [CheckErrors] finished with status [FINISHED], time taken = 59
+Step 2 [multiply[add*7]] OK: took 36 ms
+Step 3 [StringInAddMethod] OK: took 27 ms
+Step 4 [DivideByZero] OK: took 32 ms
