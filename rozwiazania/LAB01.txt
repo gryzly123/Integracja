@@ -1,0 +1,1 @@
+Rozwi¹zania zadañ 1 i 2 znajduj¹ siê w finalnym kodzie aplikacji (../integracja/src/) w plikach Book.java i BookManager.java
