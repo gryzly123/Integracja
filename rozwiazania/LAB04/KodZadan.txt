@@ -1,0 +1,4 @@
+Kod generujacy rozwiazania do laboratorium 4 mozna przejrzec wybierajac odpowiedni branch w repozytorium git:
+
+ZAD1 (lab3.xml)     bb8785ddcac62ac48892b5d695ec9c5faf81d1e1
+ZAD2 (lab3b.xml)    2b8d96b5f60c15f95263ab5d015cf6489d53f138
