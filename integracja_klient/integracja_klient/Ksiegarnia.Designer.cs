@@ -32,6 +32,7 @@
             this.tb_SearchQuery = new System.Windows.Forms.TextBox();
             this.btn_SearchButton = new System.Windows.Forms.Button();
             this.dgv_Results = new System.Windows.Forms.DataGridView();
+            this.btn_AddBook = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Results)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,11 +74,22 @@
             this.dgv_Results.Size = new System.Drawing.Size(455, 278);
             this.dgv_Results.TabIndex = 3;
             // 
+            // btn_AddBook
+            // 
+            this.btn_AddBook.Location = new System.Drawing.Point(392, 323);
+            this.btn_AddBook.Name = "btn_AddBook";
+            this.btn_AddBook.Size = new System.Drawing.Size(75, 23);
+            this.btn_AddBook.TabIndex = 4;
+            this.btn_AddBook.Text = "Dodaj";
+            this.btn_AddBook.UseVisualStyleBackColor = true;
+            this.btn_AddBook.Click += new System.EventHandler(this.btn_AddBook_Click);
+            // 
             // Ksiegarnia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 329);
+            this.ClientSize = new System.Drawing.Size(479, 355);
+            this.Controls.Add(this.btn_AddBook);
             this.Controls.Add(this.dgv_Results);
             this.Controls.Add(this.btn_SearchButton);
             this.Controls.Add(this.tb_SearchQuery);
@@ -96,6 +108,7 @@
         private System.Windows.Forms.TextBox tb_SearchQuery;
         private System.Windows.Forms.Button btn_SearchButton;
         private System.Windows.Forms.DataGridView dgv_Results;
+        private System.Windows.Forms.Button btn_AddBook;
     }
 }
 

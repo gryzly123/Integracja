@@ -47,5 +47,11 @@ namespace integracja_klient
                 MessageBox.Show("Search did not yield any results.");
             }
         }
+
+        private void btn_AddBook_Click(object sender, EventArgs e)
+        {
+            AddBook ab = new AddBook(bookManager);
+            ab.ShowDialog();
+        }
     }
 }
