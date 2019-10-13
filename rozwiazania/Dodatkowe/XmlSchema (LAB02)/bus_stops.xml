@@ -1,56 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<stops xmlns="http://wi.zut.edu.pl/ia/bus_stops"
+<database xmlns="http://wi.zut.edu.pl/ia/bus_stops"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://wi.zut.edu.pl/ia/bus_stops bus_stops.xsd">
-    <stop id="1">
-        <name>Żołnierska</name>
-        <instances>
-            <instance id="1">
-				<line>7>Krzekowo</line>
-				<line>5>Krzekowo</line>
-			</instance>
-            <instance id="2">
-				<line>7>Truskawkowa</line>
-				<line>5>Stocznia</line>
-			</instance>
-        </instances>
-    </stop>
-    <stop id="2">
-        <name>Wernyhory</name>
-        <instances>
-            <instance id="1">
-				<line>7>Krzekowo</line>
-				<line>5>Krzekowo</line>
-				<line>75>Krzekowo</line>
-			</instance>
-            <instance id="2">
-				<line>7>Truskawkowa</line>
-				<line>5>Stocznia</line>
-			</instance>
-			<instance id="3">
-				<line>75>Dworzec Główny</line>
-			</instance>
-        </instances>
-    </stop>
-    <stop id="3">
-        <name>Wyszyńskiego</name>
-        <instances>
-            <instance id="1">
-				<line>7>Krzekowo</line>
-				<line>5>Krzekowo</line>
-				<line>75>Krzekowo</line>
-			</instance>
-            <instance id="2">
-				<line>7>Truskawkowa</line>
-				<line>5>Stocznia</line>
-			</instance>
-			<instance id="3">
-				<line>75>Dworzec Główny</line>
-			</instance>
-			<instance id="4">
-				<line>75>Dworzec Główny</line>
-			</instance>
-
-        </instances>
-    </stop>
-</stops>
+    xsi:schemaLocation="http://wi.zut.edu.pl/ia/bus_stops bus_stops.xsd">>
+    <buses>
+        <bus id="0">
+            <brand>Solaris</brand>
+            <model>V1</model>
+        </bus>
+        <bus id="1">
+            <brand>Solaris</brand>
+            <model>V2</model>
+        </bus>
+        <bus id="2">
+            <brand>Mercedes</brand>
+            <model>A1</model>
+        </bus>
+        <bus id="3">
+            <brand>Mercedes</brand>
+            <model>A3</model>
+        </bus>
+    </buses>
+    <drivers>
+        <driver id="0">
+            <firstName>Jan</firstName>
+            <lastName>Kowalski</lastName>
+        </driver>
+        <driver id="1">
+            <firstName>Janusz</firstName>
+            <lastName>Nowak</lastName>
+        </driver>
+        <driver id="2">
+            <firstName>Jasiek</firstName>
+            <lastName>Nowalski</lastName>
+        </driver>
+    </drivers>
+    <lines>
+        <line id="0">
+            <name>3</name>
+            <stops>
+                <connection a="1" b="2" timeAB="4" timeBA="4"/>
+                <connection a="2" b="3" timeAB="3" timeBA="5"/>
+                <connection a="3" b="7" timeAB="2" timeBA="3"/>
+                <connection a="7" b="4" timeAB="2" timeBA="3"/>
+            </stops>
+        </line>
+        <line id="1">
+            <name>A</name>
+            <stops>
+                <connection a="8" b="6" timeAB="4" timeBA="4"/>
+                <connection a="6" b="7" timeAB="3" timeBA="5"/>
+                <connection a="7" b="5" timeAB="2" timeBA="3"/>
+            </stops>
+        </line>
+    </lines>
+    <stops>
+        <stop id="1">
+            <name>Pogodno</name>
+            <onDemand>false</onDemand>
+        </stop>
+        <stop id="2">
+            <name>Unii lubelskiej</name>
+            <onDemand>false</onDemand>
+        </stop>
+        <stop id="3">
+            <name>Traugutta</name>
+            <onDemand>false</onDemand>
+        </stop>
+        <stop id="4">
+            <name>Lodogryf</name>
+            <onDemand>false</onDemand>
+        </stop>
+        <stop id="5">
+            <name>Krzekowo</name>
+            <onDemand>false</onDemand>
+        </stop>
+        <stop id="6">
+            <name>Konopnickiej</name>
+            <onDemand>true</onDemand>
+        </stop>
+        <stop id="7">
+            <name>Plac kościuszki</name>
+            <onDemand>false</onDemand>
+        </stop>
+        <stop id="8">
+            <name>Wyszyńskiego</name>
+            <onDemand>false</onDemand>
+        </stop>
+    </stops>
+</database>
