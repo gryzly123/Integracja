@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://autobusy.kniedzwiecki.eu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="DataBaseService" targetNamespace="http://autobusy.kniedzwiecki.eu/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:420/autobusy?xsd=1" namespace="http://autobusy.kniedzwiecki.eu/" />
+    </xsd:schema>
+  </types>
+  <message name="getDatabaseContents">
+    <part name="parameters" element="tns:getDatabaseContents" />
+  </message>
+  <message name="getDatabaseContentsResponse">
+    <part name="parameters" element="tns:getDatabaseContentsResponse" />
+  </message>
+  <message name="findLineById">
+    <part name="parameters" element="tns:findLineById" />
+  </message>
+  <message name="findLineByIdResponse">
+    <part name="parameters" element="tns:findLineByIdResponse" />
+  </message>
+  <message name="findDriverById">
+    <part name="parameters" element="tns:findDriverById" />
+  </message>
+  <message name="findDriverByIdResponse">
+    <part name="parameters" element="tns:findDriverByIdResponse" />
+  </message>
+  <message name="findBusById">
+    <part name="parameters" element="tns:findBusById" />
+  </message>
+  <message name="findBusByIdResponse">
+    <part name="parameters" element="tns:findBusByIdResponse" />
+  </message>
+  <message name="setStops">
+    <part name="parameters" element="tns:setStops" />
+  </message>
+  <message name="setStopsResponse">
+    <part name="parameters" element="tns:setStopsResponse" />
+  </message>
+  <message name="getDrivers">
+    <part name="parameters" element="tns:getDrivers" />
+  </message>
+  <message name="getDriversResponse">
+    <part name="parameters" element="tns:getDriversResponse" />
+  </message>
+  <message name="setDrivers">
+    <part name="parameters" element="tns:setDrivers" />
+  </message>
+  <message name="setDriversResponse">
+    <part name="parameters" element="tns:setDriversResponse" />
+  </message>
+  <message name="createRun">
+    <part name="parameters" element="tns:createRun" />
+  </message>
+  <message name="createRunResponse">
+    <part name="parameters" element="tns:createRunResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="getLines">
+    <part name="parameters" element="tns:getLines" />
+  </message>
+  <message name="getLinesResponse">
+    <part name="parameters" element="tns:getLinesResponse" />
+  </message>
+  <message name="setBuses">
+    <part name="parameters" element="tns:setBuses" />
+  </message>
+  <message name="setBusesResponse">
+    <part name="parameters" element="tns:setBusesResponse" />
+  </message>
+  <message name="getBuses">
+    <part name="parameters" element="tns:getBuses" />
+  </message>
+  <message name="getBusesResponse">
+    <part name="parameters" element="tns:getBusesResponse" />
+  </message>
+  <message name="findStopById">
+    <part name="parameters" element="tns:findStopById" />
+  </message>
+  <message name="findStopByIdResponse">
+    <part name="parameters" element="tns:findStopByIdResponse" />
+  </message>
+  <message name="getStops">
+    <part name="parameters" element="tns:getStops" />
+  </message>
+  <message name="getStopsResponse">
+    <part name="parameters" element="tns:getStopsResponse" />
+  </message>
+  <message name="getStopResults">
+    <part name="parameters" element="tns:getStopResults" />
+  </message>
+  <message name="getStopResultsResponse">
+    <part name="parameters" element="tns:getStopResultsResponse" />
+  </message>
+  <message name="incrementRunStop">
+    <part name="parameters" element="tns:incrementRunStop" />
+  </message>
+  <message name="incrementRunStopResponse">
+    <part name="parameters" element="tns:incrementRunStopResponse" />
+  </message>
+  <message name="setLines">
+    <part name="parameters" element="tns:setLines" />
+  </message>
+  <message name="setLinesResponse">
+    <part name="parameters" element="tns:setLinesResponse" />
+  </message>
+  <portType name="DataBase">
+    <operation name="getDatabaseContents">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getDatabaseContentsRequest" message="tns:getDatabaseContents" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getDatabaseContentsResponse" message="tns:getDatabaseContentsResponse" />
+    </operation>
+    <operation name="findLineById">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/findLineByIdRequest" message="tns:findLineById" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/findLineByIdResponse" message="tns:findLineByIdResponse" />
+    </operation>
+    <operation name="findDriverById">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/findDriverByIdRequest" message="tns:findDriverById" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/findDriverByIdResponse" message="tns:findDriverByIdResponse" />
+    </operation>
+    <operation name="findBusById">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/findBusByIdRequest" message="tns:findBusById" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/findBusByIdResponse" message="tns:findBusByIdResponse" />
+    </operation>
+    <operation name="setStops">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/setStopsRequest" message="tns:setStops" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/setStopsResponse" message="tns:setStopsResponse" />
+    </operation>
+    <operation name="getDrivers">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getDriversRequest" message="tns:getDrivers" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getDriversResponse" message="tns:getDriversResponse" />
+    </operation>
+    <operation name="setDrivers">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/setDriversRequest" message="tns:setDrivers" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/setDriversResponse" message="tns:setDriversResponse" />
+    </operation>
+    <operation name="createRun">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/createRunRequest" message="tns:createRun" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/createRunResponse" message="tns:createRunResponse" />
+      <fault wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/createRun/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="getLines">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getLinesRequest" message="tns:getLines" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getLinesResponse" message="tns:getLinesResponse" />
+    </operation>
+    <operation name="setBuses">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/setBusesRequest" message="tns:setBuses" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/setBusesResponse" message="tns:setBusesResponse" />
+    </operation>
+    <operation name="getBuses">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getBusesRequest" message="tns:getBuses" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getBusesResponse" message="tns:getBusesResponse" />
+    </operation>
+    <operation name="findStopById">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/findStopByIdRequest" message="tns:findStopById" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/findStopByIdResponse" message="tns:findStopByIdResponse" />
+    </operation>
+    <operation name="getStops">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getStopsRequest" message="tns:getStops" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getStopsResponse" message="tns:getStopsResponse" />
+    </operation>
+    <operation name="getStopResults">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getStopResultsRequest" message="tns:getStopResults" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getStopResultsResponse" message="tns:getStopResultsResponse" />
+      <fault wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/getStopResults/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="incrementRunStop">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/incrementRunStopRequest" message="tns:incrementRunStop" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/incrementRunStopResponse" message="tns:incrementRunStopResponse" />
+      <fault wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/incrementRunStop/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="setLines">
+      <input wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/setLinesRequest" message="tns:setLines" />
+      <output wsam:Action="http://autobusy.kniedzwiecki.eu/DataBase/setLinesResponse" message="tns:setLinesResponse" />
+    </operation>
+  </portType>
+  <binding name="DataBasePortBinding" type="tns:DataBase">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getDatabaseContents">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findLineById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findDriverById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findBusById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setStops">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getDrivers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setDrivers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="createRun">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLines">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="setBuses">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getBuses">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findStopById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getStops">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getStopResults">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="incrementRunStop">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="setLines">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="DataBaseService">
+    <port name="DataBasePort" binding="tns:DataBasePortBinding">
+      <soap:address location="http://localhost:420/autobusy" />
+    </port>
+  </service>
+</definitions>

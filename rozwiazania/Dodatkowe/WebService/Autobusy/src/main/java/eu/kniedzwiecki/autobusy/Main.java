@@ -18,14 +18,25 @@ public class Main
 	{
 		FillAndSaveDatabase();
 		
-		DataBase db = new DataBase();
+		DataBase db = null;
+		try
+		{
+			JAXBContext context = JAXBContext.newInstance(DataBase.class);
+			Unmarshaller um = context.createUnmarshaller();
+			FileReader fr = new FileReader("autobusy.xml");
+			db = (DataBase) um.unmarshal(fr);
+			fr.close();
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
 		
 		if(db != null)
 		{
 			String url = "http://localhost:420/autobusy";
 			Endpoint.publish(url, db);
 		}
-
 	}
 	
 	public static void FillAndSaveDatabase()

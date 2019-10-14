@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://autobusy.kniedzwiecki.eu/" targetNamespace="http://autobusy.kniedzwiecki.eu/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Exception" type="tns:Exception" />
+  <xs:element name="createRun" type="tns:createRun" />
+  <xs:element name="createRunResponse" type="tns:createRunResponse" />
+  <xs:element name="database" type="tns:dataBase" />
+  <xs:element name="findBusById" type="tns:findBusById" />
+  <xs:element name="findBusByIdResponse" type="tns:findBusByIdResponse" />
+  <xs:element name="findDriverById" type="tns:findDriverById" />
+  <xs:element name="findDriverByIdResponse" type="tns:findDriverByIdResponse" />
+  <xs:element name="findLineById" type="tns:findLineById" />
+  <xs:element name="findLineByIdResponse" type="tns:findLineByIdResponse" />
+  <xs:element name="findStopById" type="tns:findStopById" />
+  <xs:element name="findStopByIdResponse" type="tns:findStopByIdResponse" />
+  <xs:element name="getBuses" type="tns:getBuses" />
+  <xs:element name="getBusesResponse" type="tns:getBusesResponse" />
+  <xs:element name="getDatabaseContents" type="tns:getDatabaseContents" />
+  <xs:element name="getDatabaseContentsResponse" type="tns:getDatabaseContentsResponse" />
+  <xs:element name="getDrivers" type="tns:getDrivers" />
+  <xs:element name="getDriversResponse" type="tns:getDriversResponse" />
+  <xs:element name="getLines" type="tns:getLines" />
+  <xs:element name="getLinesResponse" type="tns:getLinesResponse" />
+  <xs:element name="getStopResults" type="tns:getStopResults" />
+  <xs:element name="getStopResultsResponse" type="tns:getStopResultsResponse" />
+  <xs:element name="getStops" type="tns:getStops" />
+  <xs:element name="getStopsResponse" type="tns:getStopsResponse" />
+  <xs:element name="incrementRunStop" type="tns:incrementRunStop" />
+  <xs:element name="incrementRunStopResponse" type="tns:incrementRunStopResponse" />
+  <xs:element name="setBuses" type="tns:setBuses" />
+  <xs:element name="setBusesResponse" type="tns:setBusesResponse" />
+  <xs:element name="setDrivers" type="tns:setDrivers" />
+  <xs:element name="setDriversResponse" type="tns:setDriversResponse" />
+  <xs:element name="setLines" type="tns:setLines" />
+  <xs:element name="setLinesResponse" type="tns:setLinesResponse" />
+  <xs:element name="setStops" type="tns:setStops" />
+  <xs:element name="setStopsResponse" type="tns:setStopsResponse" />
+  <xs:complexType name="getDrivers">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getDriversResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="driver" type="tns:driver" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="driver">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="firstName" type="xs:string" />
+      <xs:element minOccurs="0" name="lastName" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="findLineById">
+    <xs:sequence>
+      <xs:element name="lineID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findLineByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="line" type="tns:line" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="line">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="stops">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="connection" type="tns:connection" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="connection">
+    <xs:sequence />
+    <xs:attribute name="a" type="xs:int" use="required" />
+    <xs:attribute name="b" type="xs:int" use="required" />
+    <xs:attribute name="timeAB" type="xs:int" use="required" />
+    <xs:attribute name="timeBA" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="setLines">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="lines" type="tns:line" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setLinesResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getStops">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getStopsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="stop" type="tns:stop" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stop">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element name="onDemand" type="xs:boolean" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="getStopResults">
+    <xs:sequence>
+      <xs:element name="stopID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStopResultsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="results" type="tns:busStopSearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="busStopSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Line" type="xs:string" />
+      <xs:element minOccurs="0" name="Destination" type="xs:string" />
+      <xs:element name="ArrivesIn" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setDrivers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="drivers" type="tns:driver" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setDriversResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="setStops">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="stops" type="tns:stop" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setStopsResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="createRun">
+    <xs:sequence>
+      <xs:element name="driverID" type="xs:int" />
+      <xs:element name="busID" type="xs:int" />
+      <xs:element name="lineID" type="xs:int" />
+      <xs:element name="isDirectionAB" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createRunResponse">
+    <xs:sequence>
+      <xs:element name="runID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDatabaseContents">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getDatabaseContentsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="database" type="tns:dataBase" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dataBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="buses">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="bus" type="tns:bus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="drivers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="driver" type="tns:driver" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="lines">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="line" type="tns:line" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="stops">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="stop" type="tns:stop" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="brand" type="xs:string" />
+      <xs:element minOccurs="0" name="model" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="getBuses">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getBusesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="bus" type="tns:bus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findDriverById">
+    <xs:sequence>
+      <xs:element name="driverID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findDriverByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="driver" type="tns:driver" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findStopById">
+    <xs:sequence>
+      <xs:element name="stopID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findStopByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="stop" type="tns:stop" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBusById">
+    <xs:sequence>
+      <xs:element name="busID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBusByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bus" type="tns:bus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setBuses">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="buses" type="tns:bus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setBusesResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="incrementRunStop">
+    <xs:sequence>
+      <xs:element name="runID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="incrementRunStopResponse">
+    <xs:sequence>
+      <xs:element name="incremented" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLines">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getLinesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="line" type="tns:line" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
