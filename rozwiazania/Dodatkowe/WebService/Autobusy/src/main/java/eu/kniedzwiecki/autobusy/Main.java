@@ -18,21 +18,7 @@ public class Main
 	{
 		FillAndSaveDatabase();
 		
-		DataBase db = null;
-		try
-		{
-			JAXBContext context = JAXBContext.newInstance(DataBase.class);
-			Unmarshaller um = context.createUnmarshaller();
-			FileReader fr = new FileReader("autobusy.xml");
-			db = (DataBase) um.unmarshal(fr);
-			fr.close();
-			
-			Test(db);
-		}
-		catch (Exception e) 
-		{
-			e.printStackTrace();
-		}
+		DataBase db = new DataBase();
 		
 		if(db != null)
 		{
@@ -41,7 +27,6 @@ public class Main
 		}
 
 	}
-	
 	
 	public static void FillAndSaveDatabase()
 	{
@@ -56,14 +41,14 @@ public class Main
         db.getStops().add(new BusStop(7, "Plac kościuszki", false));
         db.getStops().add(new BusStop(8, "Wyszyńskiego",    false));
 		
-		Line L1 = new Line(0, "3");                       //Pogodno
+		Line L1 = new Line(0, "3");                    //Pogodno
         L1.getStops().add(new Connection(1, 2, 4, 4)); //Unii lubelskiej
         L1.getStops().add(new Connection(2, 3, 3, 5)); //Traugutta
         L1.getStops().add(new Connection(3, 7, 2, 3)); //Plac kościuszki
         L1.getStops().add(new Connection(7, 4, 2, 3)); //Lodogryf
 		db.getLines().add(L1);
 					
-		Line L2 = new Line(1, "A");                       //Wyszyńskiego
+		Line L2 = new Line(1, "A");                    //Wyszyńskiego
 		L2.getStops().add(new Connection(8, 6, 4, 4)); //Konopnickiej
         L2.getStops().add(new Connection(6, 7, 3, 5)); //Plac kościuszki
         L2.getStops().add(new Connection(7, 5, 2, 3)); //Krzekowo

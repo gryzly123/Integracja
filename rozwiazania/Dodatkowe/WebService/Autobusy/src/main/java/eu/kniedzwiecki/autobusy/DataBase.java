@@ -3,6 +3,8 @@ package eu.kniedzwiecki.autobusy;
 import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -29,59 +31,73 @@ public class DataBase
 
 	@XmlElementWrapper
     @XmlElement(name="stop")
-	public List<BusStop> getStops()
+	@WebMethod
+	public @WebResult(name="stop") List<BusStop> getStops()
 	{
 		return Stops;
 	}
 
-	public void setStops(List<BusStop> stops)
+	@WebMethod
+	public void setStops(
+			@WebParam(name="stops") List<BusStop> stops)
 	{
 		this.Stops = stops;
 	}
 
 	@XmlElementWrapper
     @XmlElement(name="line")
-	public List<Line> getLines()
+	@WebMethod
+	public @WebResult(name="line") List<Line> getLines()
 	{
 		return Lines;
 	}
 
-	public void setLines(List<Line> lines)
+	@WebMethod
+	public void setLines(
+			@WebParam(name="lines") List<Line> lines)
 	{
 		this.Lines = lines;
 	}
 
 	@XmlElementWrapper
     @XmlElement(name="driver")
-	public List<Driver> getDrivers()
+	@WebMethod
+	public @WebResult(name="driver") List<Driver> getDrivers()
 	{
 		return Drivers;
 	}
 
-	public void setDrivers(List<Driver> drivers)
+	@WebMethod
+	public void setDrivers(
+			@WebParam(name="drivers") List<Driver> drivers)
 	{
 		this.Drivers = drivers;
 	}
 
 	@XmlElementWrapper
     @XmlElement(name="bus")
-	public List<Bus> getBuses()
+	@WebMethod
+	public @WebResult(name="bus") List<Bus> getBuses()
 	{
 		return Buses;
 	}
 
-	public void setBuses(List<Bus> buses)
+	@WebMethod
+	public void setBuses(
+			@WebParam(name="buses") List<Bus> buses)
 	{
 		this.Buses = buses;
 	}
 	
 	@WebMethod
-	DataBase getDatabaseContents()
+	public @WebResult(name="database") DataBase getDatabaseContents()
 	{
 		return this;
 	}
 	
-	BusStop findStopById(int id)
+	@WebMethod
+	public @WebResult(name="stop") BusStop findStopById(
+			@WebParam(name="stopID") int id)
 	{
 		for(BusStop bs : Stops)
 		{
@@ -90,7 +106,9 @@ public class DataBase
 		return null;
 	}
 	
-	Line findLineById(int id)
+	@WebMethod
+	public @WebResult(name="line") Line findLineById(
+			@WebParam(name="lineID") int id)
 	{
 		for(Line l : Lines)
 		{
@@ -99,7 +117,9 @@ public class DataBase
 		return null;
 	}
 	
-	Driver findDriverById(int id)
+	@WebMethod
+	public @WebResult(name="driver") Driver findDriverById(
+			@WebParam(name="driverID") int id)
 	{
 		for(Driver d : Drivers)
 		{
@@ -108,7 +128,9 @@ public class DataBase
 		return null;
 	}
 	
-	Bus findBusById(int id)
+	@WebMethod
+	public @WebResult(name="bus") Bus findBusById(
+			@WebParam(name="busID") int id)
 	{
 		for(Bus b : Buses)
 		{
@@ -119,7 +141,11 @@ public class DataBase
 	
 	
 	@WebMethod
-	public int createRun(int driverId, int busId, int lineId, boolean direction) throws Exception
+	public @WebResult(name="runID") int createRun(
+			@WebParam(name="driverID")      int driverId,
+			@WebParam(name="busID")         int busId,
+			@WebParam(name="lineID")        int lineId,
+			@WebParam(name="isDirectionAB") boolean direction) throws Exception
 	{
 		Driver d = findDriverById(driverId);
 		Bus b = findBusById(busId);
@@ -136,7 +162,8 @@ public class DataBase
 	}
 	
 	@WebMethod
-	public boolean incrementRunStop(int runId) throws Exception
+	public @WebResult(name="incremented") boolean incrementRunStop(
+			@WebParam(name="runID") int runId) throws Exception
 	{
 		BusRun br = Runs.get(runId);
 		if(br == null) throw new Exception();
@@ -155,7 +182,8 @@ public class DataBase
 	}
 	
 	@WebMethod
-	public List<BusStopSearchResult> getStopResults(int stopId) throws Exception
+	public @WebResult(name="results") List<BusStopSearchResult> getStopResults(
+			@WebParam(name="stopID") int stopId) throws Exception
 	{
 		List<BusStopSearchResult> Result = new ArrayList<>();
 		
