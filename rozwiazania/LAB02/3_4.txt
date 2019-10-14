@@ -1,10 +1,11 @@
-Wyrażenie wyszukujące:
+﻿Wyrażenie wyszukujące:
 	* 978-83-246-2785-1
 		* /books/book[isbn='978-83-246-2785-1']/title
 		* <title>Java. Ćwiczenia praktyczne. Wydanie III</title>
 		
 	* książki Marcina Lisa
 		* /books/book[contains(authors,'Marcin Lis')]/title
+
 	* książki z PHP w tytule wydane po 2009
 		* /books/book[contains(title,'PHP') and year>2009]/title
 
